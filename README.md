@@ -1,9 +1,9 @@
 # Border_Analytic_submit
 The final submission files for the coding exam
-# The problem
+# 1.The problem
 The problem, basically, is to classify the data according to the borders (whether it is US-Canada border or US-Mexico border), date and measures (The type of transportation) first, then compute the sum of values and average of values. The point of this exam is that we are not allowed to use pandas (otherwise just groupby first then take the sum and mean, there is nothing more to do). We must use the basic codes such as for loop and while loop to do analysis.
 
-# The code
+# 2.The code
 1. First I import csv. This is a package coming with Python 3.8. We use this package to read the csv file.
 
 2. Next I define a class called border_crossing_data. It is not necessary to wrap the functions into a class. I think it looks better and    makes it easy to use repeatedly for different inputs.
@@ -23,8 +23,8 @@ The problem, basically, is to classify the data according to the borders (whethe
    
    * report generate: It writes the result into a csv file called 'report.csv'.
 
-# The input and output
-  The input is the csv file 'Border_Crossing_Entry_Data.csv' (given by you) and the output is 'report.csv' (generated on my computer).
+# 4.The input and output
+  The input is the csv file 'Border_Crossing_Entry_Data.csv' (given by you) and the output is 'report.csv'.
   
-# The name of the py file
+# 5.The name of the py file
   The name of the code file is border_analytics.py, according to your instruction.
