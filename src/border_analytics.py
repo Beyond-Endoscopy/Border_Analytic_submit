@@ -3,7 +3,7 @@
 
 
 
-
+import sys
 import csv
 
 
@@ -90,11 +90,11 @@ class border_crossing_data:
                     result.append(dic)
         return result
                           
-    def report_generate(self, result = None):
+    def report_generate(self, output_file, result = None):
         if result == None:
             result = self.result_generate()
         
-        with open('report.csv', mode='w') as csv_file:
+        with open(outputfile, mode='w') as csv_file:
             fieldnames = ['Border', 'Date', 'Measure', 'Sum', 'Avg']
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
@@ -103,10 +103,11 @@ class border_crossing_data:
                writer.writerow(item)
 
 
+input_file = sys.argv[1]
+output_file = sys.argv[2]
 
 
-
-all_data = border_crossing_data('C:\\Users\haole\Border_Crossing_Analysis_Demo\input\Border_Crossing_Entry_Data.csv')
+all_data = border_crossing_data(input_file)
 
 
 
