@@ -2,19 +2,22 @@
 # coding: utf-8
 
 
+#Import sys and csv to read the input and write the output.
 
 import sys
 import csv
 
 
 
-
+#Wrap the functions into a class.
 
 class border_crossing_data:
     def __init__(self, csvfilename, features = None):
         self.csvfilename = csvfilename
         self.features = features
-        
+  
+#Read the imput file.
+
     def read_file(self):
         with open(self.csvfilename, mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
@@ -28,7 +31,9 @@ class border_crossing_data:
                 line_count += 1
             print(f'Processed {line_count} lines.')
             return result
-    
+
+#Counting how many different values are there in a given feature.  
+                          
     def value_count(self, lst = None, feature = None):
         result = []
         if lst == None:
@@ -37,6 +42,8 @@ class border_crossing_data:
             if item[feature] not in result:
                 result.append(item[feature])
         return result
+ 
+#Picking up the data points with certain prescribed values on some given features.
                           
     def sub_lst_by_feature(self, lst = None, dic = None):
         result = []
@@ -51,7 +58,9 @@ class border_crossing_data:
             if x == True:
                 result.append(item)
         return result
-                        
+  
+  #Compute the sum of the feature 'Values' for the data points having certain prescribed values on some given feature.
+                          
     def compt_sum(self, lst = None, dic = None):
         sum = 0
         if lst == None and dic != None:
@@ -59,6 +68,8 @@ class border_crossing_data:
         for item in lst:
             sum += int(item['Value'])
         return sum
+
+  #Compute the average of the feature 'Values' for the data points having certain prescribed values on some given feature.                       
                           
     def compt_avg(self, lst = None, dic = None):
         if lst == None and dic != None:
@@ -68,6 +79,8 @@ class border_crossing_data:
             print("You have an empty dataset!")
         else:
             return self.compt_sum(lst)//l
+ 
+ #Generate the result.                         
                           
     def result_generate(self, lst = None):
         if lst == None:
@@ -90,6 +103,8 @@ class border_crossing_data:
                     result.append(dic)
         return result
                           
+   #Generate the report, a csv file.                       
+                          
     def report_generate(self, output_file, result = None):
         if result == None:
             result = self.result_generate()
@@ -103,6 +118,8 @@ class border_crossing_data:
                writer.writerow(item)
 
 
+#Testing the code on the given dataset.                          
+                          
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
