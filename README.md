@@ -23,8 +23,8 @@ The problem, basically, is to classify the data according to the borders (whethe
    
    * report generate: It writes the result into a csv file called 'report.csv'.
 
-# 4.The input and output
+# 3.The input and output
   The input is the csv file 'Border_Crossing_Entry_Data.csv' (given by you) and the output is 'report.csv'.
   
-# 5.The name of the py file
+# 4.The name of the py file
   The name of the code file is border_analytics.py, according to your instruction.
