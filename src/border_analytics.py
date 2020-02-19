@@ -94,7 +94,7 @@ class border_crossing_data:
         if result == None:
             result = self.result_generate()
         
-        with open(outputfile, mode='w') as csv_file:
+        with open(output_file, mode='w') as csv_file:
             fieldnames = ['Border', 'Date', 'Measure', 'Sum', 'Avg']
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
