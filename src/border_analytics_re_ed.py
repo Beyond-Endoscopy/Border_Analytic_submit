@@ -2,13 +2,14 @@
 # coding: utf-8
 
 
-
+#import the packages to read csv file, to find the input and output location.
 
 import csv
 import sys
 
 
-
+#Create a dictionary from the input file. Using the values of Border, Date, Measure as keys, since we don't need to update them. 
+#Computing the sum needed while creating the dictionary.
 
 def to_dic(lst):
     e = {}
@@ -23,9 +24,13 @@ def to_dic(lst):
             e[key].append(0)
     return e
 
+#This is for get the part of the string representing the year. There might be better looking method, but this one is enough to use.
 
 def get_6_to_10(s):
     return s[6:10]
+
+#Creating a list containing the years appeared. This is because the second target, average, is computed using the accumulative sum 
+#within a year. 
 
 def get_year_lst(d):
     result = []
@@ -35,6 +40,8 @@ def get_year_lst(d):
             result.append(x)
     return result
 
+#Get the part of dictionary for a chosen year.
+
 def get_year_1(year, dic):
     result = {}
     for key in dic:
@@ -42,6 +49,9 @@ def get_year_1(year, dic):
         if x == year:
             result[key] = dic[key]
     return result
+
+#Computing the average. For a certain combination of Border, Date, Measure, we need the sum of values for the same Border and Measure 
+#from all previous months, also the number of previous months.
 
 def compute_avg(dic):
     for key in dic:
@@ -56,6 +66,8 @@ def compute_avg(dic):
             dic[key].append(int(dic[key][1]/dic[key][2] + 0.5))
     return dic
 
+#Turn the dictionary into a list of dictionaries, for the purpose of sorting, and to be written into the report file.
+
 def turn_in_list(d):
     result = []
     for key in d:
@@ -68,13 +80,15 @@ def turn_in_list(d):
         result.append(dic)
     return result
 
+#Sorting the list of dictionaries.
+
 def sort_feature(lst):
     lst = sorted(lst, key = lambda i: (i['Date'], i['Value'], i['Measure'], i['Border']), reverse = True)
     return lst
 
 
 
-
+#Generate the report file. 
 
 def cross_report(input_file, output_file):
     with open(input_file, mode='r') as csv_file:
