@@ -3,21 +3,21 @@
 
 #Import sys and csv to read the input and write the output.
 
-<<<<<<< HEAD
+
 
 #Import sys and csv to read the input and write the output.
 
 
-=======
 
-
-
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
 import sys
 import csv
 
 
-<<<<<<< HEAD
+
+
+#Wrap the functions into a class.
+
+
 
 #Wrap the functions into a class.
 
@@ -25,26 +25,11 @@ import csv
 
 #Wrap the functions into a class.
 
-=======
-
-#Wrap the functions into a class.
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
 
 class border_crossing_data:
     def __init__(self, csvfilename, features = None):
         self.csvfilename = csvfilename
         self.features = features
-<<<<<<< HEAD
-
-=======
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
-
-
-
-<<<<<<< HEAD
-        
-=======
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
 
   
 #Read the imput file.
@@ -64,17 +49,16 @@ class border_crossing_data:
             print(f'Processed {line_count} lines.')
             return result
 
-<<<<<<< HEAD
+
 
 
 #Counting how many different values are there in a given feature.  
     
 #Counting how many different values are there in a given feature.  
-=======
+
 
 #Counting how many different values are there in a given feature.  
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
-                          
+
 
     def value_count(self, lst = None, feature = None):
         result = []
@@ -84,15 +68,12 @@ class border_crossing_data:
             if item[feature] not in result:
                 result.append(item[feature])
         return result
-<<<<<<< HEAD
 
 
 
 #Picking up the data points with certain prescribed values on some given features.    
 
-=======
 
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
  
 #Picking up the data points with certain prescribed values on some given features.
 
@@ -117,9 +98,7 @@ class border_crossing_data:
 #Compute the sum of the feature 'Values' for the data points having certain prescribed values on some given feature.    
                         
 
-=======
 
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
   
   #Compute the sum of the feature 'Values' for the data points having certain prescribed values on some given feature.
                           
@@ -132,14 +111,12 @@ class border_crossing_data:
             sum += int(item['Value'])
         return sum
 
-<<<<<<< HEAD
+
 
 
 #Compute the average of the feature 'Values' for the data points having certain prescribed values on some given feature.  
 
-=======
 
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
   #Compute the average of the feature 'Values' for the data points having certain prescribed values on some given feature.                       
 
                           
@@ -151,15 +128,12 @@ class border_crossing_data:
             print("You have an empty dataset!")
         else:
             return self.compt_sum(lst)//l
-<<<<<<< HEAD
 
 
 
 #Generate the result.        
 
-=======
 
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
  
  #Generate the result.                         
 
@@ -186,11 +160,6 @@ class border_crossing_data:
         return result
 
 
-<<<<<<< HEAD
-#Generate the report, a csv file.     
-                          
-=======
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
 
    #Generate the report, a csv file.                       
                           
@@ -209,16 +178,15 @@ class border_crossing_data:
 
 
 
-<<<<<<< HEAD
+
 #Testing the code on the given dataset.    
 
-=======
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
+
 #Testing the code on the given dataset.                          
                           
 input_file = sys.argv[1]
 output_file = sys.argv[2]
-<<<<<<< HEAD
+
 
 
 input_file = sys.argv[1]
@@ -227,10 +195,7 @@ output_file = sys.argv[2]
 
 
 
-=======
 
-
->>>>>>> a96b81701c4a6433596ca612a7bfedc56337f3df
 all_data = border_crossing_data(input_file)
 
 
