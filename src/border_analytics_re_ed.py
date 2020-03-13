@@ -97,7 +97,6 @@ def cross_report(input_file, output_file):
             line_count = 0
             for row in csv_reader:
                 if line_count == 0:
-                    print(f'Column names are {", ".join(row)}')
                     line_count += 1
                 input_lst.append(row)
                 line_count += 1
