@@ -7,3 +7,8 @@ In this project a program was built to analyzing the number of times certain of 
 # The input dataset out put dataset
 
 The input dataset is an excel file (.csv) about the border crossing information at US-Canada border and US-Mexico border. It has 7 features: Port Name, State, Port Code, Border, Date, Measure, Value. The output file should contain five features: Border, Date, Measure, Value (a sum, not the previously mentioned 'Value') and Average. 
+
+# The code
+
+The Value feature in the output dataset is the following: for each combination of Border, Date, Measure, sum up the Value in the input dataset over different Ports. Basically this is do the groupby operation on the input dataset according the combination of Border, Date, Measure, and then sum the Value (This is the way to do it in MySQL). Here I build a dictionary using the three tuple （Border: ...,Date:..., Measure:...) as the keys. for each key, its value is a list of three numbers: [Value (the sum needed), 0, 0]. The two zeros for later use, when we compute the Average.
+
