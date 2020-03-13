@@ -100,7 +100,6 @@ def cross_report(input_file, output_file):
                     line_count += 1
                 input_lst.append(row)
                 line_count += 1
-            print(f'Processed {line_count} lines.')
                           
     input_dic = to_dic(input_lst)
     
