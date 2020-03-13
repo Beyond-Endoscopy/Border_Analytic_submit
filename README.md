@@ -12,7 +12,7 @@ The input dataset is an excel file (.csv) about the border crossing information 
 
 First we need to know what the 'Value' is and what the 'Average' is in the output file.
 
-The feature 'Value': For each combination of values of 'Border', 'Date', 'Measure', we sum up all the 'Value' in the input dataset over different ports. For example, we can fix a tuple: 'Border': US-Canada Border, 'Date': 12/01/2019 12:00:00 AM, 'Measure': Pedestrian, we sum over all the data points who have the same values on this tuple. 
+The feature 'Value': For each combination of values of 'Border', 'Date', 'Measure', we sum up all the 'Value' in the input dataset over different ports. For example, we can fix a tuple: 'Border': US-Canada Border, 'Date': 12/01/2019 12:00:00 AM, 'Measure': Pedestrian, then we sum over the feature 'Value' all the data points who have the same values on this tuple in the input dataset. 
 
 To achieve the goal of computing this sum, I created a dictionary whose keys are these triples. The value for each key is a list of length three, the first number in the list is to record this sum, the second and the third number in the list are for later use. Using with open read mode, we get a list of dictionaries from the input file. Then I use the function to_dic to create the dictionary. 
 
