@@ -63,7 +63,7 @@ def compute_avg(dic):
         if dic[key][2] == 0:
             dic[key].append(0)
         else:
-            dic[key].append(int(dic[key][1]/dic[key][2] + 0.7))
+            dic[key].append(int(dic[key][1]/dic[key][2] + 0.8))
     return dic
 
 #Turn the dictionary into a list of dictionaries, for the purpose of sorting, and to be written into the report file.
