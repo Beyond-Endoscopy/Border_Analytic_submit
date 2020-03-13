@@ -10,9 +10,14 @@ The input dataset is an excel file (.csv) about the border crossing information 
 
 ## The code
 
-The Value feature in the output dataset is the following: for each combination of Border, Date, Measure, sum up the Value in the input dataset over different Ports. Basically this is do the groupby operation on the input dataset according the combination of Border, Date, Measure, and then sum the Value (This is the way to do it in MySQL). Here I build a dictionary using the three tuple （Border: ...,Date:..., Measure:...) as the keys. for each key, its value is a list of three numbers: [Value (the sum needed), 0, 0]. The two zeros for later use, when we compute the Average.
+First we need to know what the 'Value' is and what the 'Average' is in the output file.
 
-The Average means the average of the total crossings of the vehicle at the same border in all the months previous to the month in the same year. To do this, first I build a dictionary for each year, using the function get_year_1. Then use the function compute_avg to get the Average. 
+The feature 'Value': For each combination of values of 'Border', 'Date', 'Measure', we sum up all the 'Value' over different ports. For example, we can fix a tuple: 'Border': US-Canada Border, 'Date': 12/01/2019 12:00:00 AM, 'Measure': Pedestrian, we sum over all the data points who have the same values on this tuple. 
 
-Finally, build a list of dictionaries of the form {Border:..., Date:..., Measure:..., Value:..., Average:...} from the above dictionaries. Using with open write mode to write this list of dictionaries into the report file.
+To achieve the goal of computing this sum, I created a dictionary whose keys are these triples. The value for each key is a list of length three, the first number in the list is to record this sum, the second and the third number in the list are for later use. Using with open read mode, we get a list of dictionaries from the input file. Then I use the function to_dic to create the dictionary. 
 
+The feature 'Averate' is a little bit complicated. It is defined in the following way: For a combination of values of 'Border', 'Date', 'Measure', the 'Average' is the average of the newly defined 'Value' over all these tuples whose 'Date' are the previous months in the same year. For example, for the tuple: 'Border': US-Canada Border, 'Date': 12/01/2019 12:00:00 AM, 'Measure': Pedestrian, the 'Average' is the average of the newly defined 'Value' over all the tuples whose 'Border' value is 'US-Canada Border', 'Measure' value is 'Pedestrian' and 'Date' are '11/01/2019, ...', '10/01/2019, ...',..., '02/01/2019,...'. The goal of computing 'Average' is achieved by a series of functions, starting from 'get_6_to_10' to 'compute_avg'. 
+
+After computing the feature 'Average', I transform the dictionary into a list of dictionaries using the function 'turn_in_list'. Since we are asked to sort the output data points according to 'Date', 'Value', 'Measure', 'Border', I used the function 'sorted' to do this sorting. 
+
+Finally, using with open write mode to write the output data points into the report file.
